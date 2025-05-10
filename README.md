@@ -1,2 +1,2 @@
 # GetMazza
-A event ticketing site
+It is a event ticketing website
