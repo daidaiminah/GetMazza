@@ -52,17 +52,14 @@ const CreatingMoment = () => {
 
   const timelineItems = [
     {
-      year: '2020',
       title: '5 Countries Covered',
       description: 'Spanning 5 continents with handpicked venues in the world\'s most sought-after destinations.'
     },
     {
-      year: '2022',
       title: '400+ Members',
       description: 'Join a curated network of luxury venues and hospitality leaders elevating global event experiences'
     },
     {
-      year: '2024',
       title: '7 Strategic Partners Worldwide',
       description: 'Exclusive alliances with 7 global leaders in luxury hospitality and event innovation.'
     }
@@ -113,17 +110,28 @@ const CreatingMoment = () => {
           <div className="relative w-full lg:w-1/2 mt-10 lg:mt-0">
             {/* Vertical Timeline Line */}
             <motion.div 
-              className="absolute left-7 md:left-7 top-0 bottom-0 w-1 bg-gray-700"
+              className="absolute left-7 md:left-0 top-10 bottom-0 w-1"
               initial={{ height: 0 }}
               animate={controls}
               variants={{
-                visible: { height: '100%', transition: { duration: 1.5 } }
+                visible: { height: '86%', transition: { duration: 1.5 } }
               }}
-              style={{ zIndex: 1 }}
+              style={{ zIndex: 1, background: "linear-gradient(185deg, rgba(181, 113, 49, 1) 0%, rgba(129, 140, 153, 1) 60%, rgba(129, 140, 153, 1) 40%)" }}
             />
             
+            {/* Timeline Dots */}
+            <div className="absolute left-7 md:left-0 top-[6%] z-10">
+              <div className="w-3 h-3 rounded-full bg-bronze -ml-1"></div>
+            </div>
+            <div className="absolute left-7 md:left-0 top-[39%] z-10"> 
+              <div className="w-3 h-3 rounded-full bg-gray-700 -ml-1"></div>
+            </div>
+            <div className="absolute left-7 md:left-0 top-[73%] z-10">
+              <div className="w-3 h-3 rounded-full bg-gray-700 -ml-1"></div>
+            </div>
+            
             {/* Timeline Items */}
-            <div className="relative z-10">
+            <div className="relative z-10 left-8">
               {timelineItems.map((item, i) => (
                 <motion.div 
                   key={i} 
@@ -134,26 +142,9 @@ const CreatingMoment = () => {
                   variants={cardVariants}
                 >
                   <div className="flex">
-                    {/* Year Circle */}
-                    <motion.div 
-                      className="relative z-10 mr-6 md:mr-8"
-                      initial={{ scale: 0 }}
-                      animate={controls}
-                      variants={{
-                        visible: { 
-                          scale: 1, 
-                          transition: { delay: i * 0.2 + 0.5, duration: 0.4, type: 'spring' } 
-                        }
-                      }}
-                    >
-                      <div className="flex items-center justify-center w-14 h-14 md:w-18 md:h-18 rounded-full bg-black border-2 border-bronze overflow-hidden">
-                        <span className="font-glass text-bronze text-sm">{item.year}</span>
-                      </div>
-                    </motion.div>
-                    
                     {/* Content Card */}
                     <motion.div 
-                      className="bg-black bg-opacity-60 backdrop-filter backdrop-blur-sm rounded-lg p-5 border border-bronze/30 flex-1"
+                      className="bg-black bg-opacity-60 backdrop-filter backdrop-blur-sm rounded-lg p-5 flex-1"
                       initial={{ x: 50, opacity: 0 }}
                       animate={controls}
                       variants={{
@@ -174,7 +165,7 @@ const CreatingMoment = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Decorative elements */}
       <motion.div 
         className="absolute -right-10 top-20 w-40 h-40 rounded-full bg-bronze/10 blur-3xl"
